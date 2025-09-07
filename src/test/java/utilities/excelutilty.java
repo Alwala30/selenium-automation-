@@ -77,17 +77,18 @@ public class excelutilty
 	
 	
 
-	public static void setCellData(String xlfile,String data1,String data) throws IOException
+	public static void setCellData(String xlfile,String data1,String data2,String data) throws IOException
 	{
-		fi=new FileInputStream(xlfile);
+		fo=new FileOutputStream(xlfile);
 		wb=new XSSFWorkbook();
 		ws=wb.createSheet("sheet1");
 		for(int r=0;r<=100;r++)
 		    {row=ws.createRow(r);
 		row.createCell(0).setCellValue(data);
 	    row.createCell(1).setCellValue(data1);
+	    row.createCell(1).setCellValue(data2);
 	    }
-        fo=new FileOutputStream(xlfile);
+        
 		wb.write(fo);		
 		wb.close();
 		fi.close();
