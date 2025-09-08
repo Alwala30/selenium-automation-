@@ -1,5 +1,7 @@
 package utilities;
 
+import java.io.IOException;
+
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -10,6 +12,8 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentReporter;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+
+import Testcases.Basetestclass;
 
 public class extent_reportsmanager implements ITestListener {
 
@@ -41,6 +45,15 @@ public class extent_reportsmanager implements ITestListener {
          test=extent.createTest(result.getName());
          test.log(Status.FAIL,"Test is failed:"+result.getName());
          test.log(Status.FAIL,"Test case failed due to:"+result.getThrowable());
+        try
+        {
+         String imgpath=new Basetestclass().Takescreenshot(result.getName());
+         test.addScreenCaptureFromPath(imgpath);
+        }
+        catch(Exception e)
+        {
+        	e.printStackTrace();
+        }
 	 }
 
 	 public void onTestSkipped(ITestResult result) {

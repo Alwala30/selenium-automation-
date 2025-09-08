@@ -11,11 +11,5 @@
     </classes>
   </test> <!-- Test -->
      
-  <test name="firefoxTest">
-  <parameter name="browser" value="firefox"/>
-    <classes>
-      <class name="Testcases.TC_001"/>
-    </classes>
-  </test> <!-- Test -->
-     
+  
 </suite> <!-- Suite -->
