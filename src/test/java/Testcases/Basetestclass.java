@@ -20,16 +20,7 @@ public class Basetestclass {
 		driver.quit();
 	}
 	
-	@BeforeClass
-	public void setup()
-	{
-	  driver=new ChromeDriver();
-	  driver.manage().deleteAllCookies();
-	  driver.get("https://prebooking.kawasaki-india.com/bike/klx230");
-	  driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-	  driver.manage().window().maximize();
-
-	}
+	
 	
 
 }

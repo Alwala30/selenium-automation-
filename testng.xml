@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite">
-  <test thread-count="5" name="Test">
+<suite thread-count="5" name="Suite" parallel="tests">
+<listeners>
+	<listener class-name="utilities.extent_reportsmanager"></listener>
+</listeners>
+  <test name="Test">
+  <parameter name="browser" value="chrome"/>
     <classes>
       <class name="Testcases.TC_001"/>
     </classes>
   </test> <!-- Test -->
+     
+  <test name="firefoxTest">
+  <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="Testcases.TC_001"/>
+    </classes>
+  </test> <!-- Test -->
+     
 </suite> <!-- Suite -->
